@@ -1,2 +1,2 @@
-# JAVA
- Projetos escolares na linguagem JAVA
+# Java
+ Projetos escolares na linguagem Java
