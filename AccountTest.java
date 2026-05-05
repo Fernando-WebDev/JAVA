@@ -2,24 +2,28 @@ import javax.swing.JOptionPane;
 
 public class AccountTest {
     public static void main(String[] args) {
-        // Cria um objeto Account inicial
-        Account myAccount = new Account("João Silva", 50.00);
+        
+        Account account1 = new Account("Jane Green", 50.00);
+        Account account2 = new Account("John Blue", -7.53);
 
-        // Exibe saldo inicial
-        String message = String.format("Nome: %s\nSaldo Inicial: R$ %.2f", 
-                myAccount.getName(), myAccount.getBalance());
-        JOptionPane.showMessageDialog(null, message);
+        String welcomeMessage = String.format("%s balance: $%.2f%n%s balance: $%.2f",
+                account1.getName(), account1.getBalance(),
+                account2.getName(), account2.getBalance());
+        
+        JOptionPane.showMessageDialog(null, welcomeMessage);
 
-        // Pede um valor de depósito via interface gráfica
-        String input = JOptionPane.showInputDialog("Quanto deseja depositar?");
-        double depositAmount = Double.parseDouble(input);
+        String inputAmount = JOptionPane.showInputDialog("Enter deposit amount for account1:");
+        
+        double depositAmount = Double.parseDouble(inputAmount);
 
-        // Realiza o depósito
-        myAccount.deposit(depositAmount);
+        account1.deposit(depositAmount);
 
-        // Exibe o saldo atualizado
-        String finalMessage = String.format("Novo saldo de %s: R$ %.2f", 
-                myAccount.getName(), myAccount.getBalance());
+        String finalMessage = String.format("Adding %.2f to account1 balance.%n%n" +
+                "New balances:%n%s: $%.2f%n%s: $%.2f",
+                depositAmount,
+                account1.getName(), account1.getBalance(),
+                account2.getName(), account2.getBalance());
+
         JOptionPane.showMessageDialog(null, finalMessage);
     }
 }
